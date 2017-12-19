@@ -1,2 +1,3 @@
 # junk-code
-Needless to explain
+
+Miscellaneous test apps and useful snippets
