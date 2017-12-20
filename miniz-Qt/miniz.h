@@ -957,7 +957,7 @@ typedef struct
 
     /* Filename. If string ends in '/' it's a subdirectory entry. */
     /* Guaranteed to be zero terminated, may be truncated to fit. */
-    wchar_t m_filename[MZ_ZIP_MAX_ARCHIVE_FILENAME_SIZE];
+    char m_filename[MZ_ZIP_MAX_ARCHIVE_FILENAME_SIZE];
 
     /* Comment field. */
     /* Guaranteed to be zero terminated, may be truncated to fit. */
@@ -1097,8 +1097,8 @@ mz_bool mz_zip_reader_init_mem(mz_zip_archive *pZip, const void *pMem, size_t si
 /* Read a archive from a disk file. */
 /* file_start_ofs is the file offset where the archive actually begins, or 0. */
 /* actual_archive_size is the true total size of the archive, which may be smaller than the file's actual size on disk. If zero the entire file is treated as the archive. */
-mz_bool mz_zip_reader_init_file(mz_zip_archive *pZip, const wchar_t *pFilename, mz_uint32 flags);
-mz_bool mz_zip_reader_init_file_v2(mz_zip_archive *pZip, const wchar_t *pFilename, mz_uint flags, mz_uint64 file_start_ofs, mz_uint64 archive_size);
+mz_bool mz_zip_reader_init_file(mz_zip_archive *pZip, const char *pFilename, mz_uint32 flags);
+mz_bool mz_zip_reader_init_file_v2(mz_zip_archive *pZip, const char *pFilename, mz_uint flags, mz_uint64 file_start_ofs, mz_uint64 archive_size);
 
 /* Read an archive from an already opened FILE, beginning at the current file position. */
 /* The archive is assumed to be archive_size bytes long. If archive_size is < 0, then the entire rest of the file is assumed to contain the archive. */
@@ -1201,8 +1201,8 @@ mz_bool mz_zip_reader_extract_iter_free(mz_zip_reader_extract_iter_state* pState
 #ifndef MINIZ_NO_STDIO
 /* Extracts a archive file to a disk file and sets its last accessed and modified times. */
 /* This function only extracts files, not archive directory records. */
-mz_bool mz_zip_reader_extract_to_file(mz_zip_archive *pZip, mz_uint file_index, const wchar_t *pDst_filename, mz_uint flags);
-mz_bool mz_zip_reader_extract_file_to_file(mz_zip_archive *pZip, const wchar_t *pArchive_filename, const wchar_t *pDst_filename, mz_uint flags);
+mz_bool mz_zip_reader_extract_to_file(mz_zip_archive *pZip, mz_uint file_index, const char *pDst_filename, mz_uint flags);
+mz_bool mz_zip_reader_extract_file_to_file(mz_zip_archive *pZip, const char *pArchive_filename, const char *pDst_filename, mz_uint flags);
 
 /* Extracts a archive file starting at the current position in the destination FILE stream. */
 mz_bool mz_zip_reader_extract_to_cfile(mz_zip_archive *pZip, mz_uint file_index, MZ_FILE *File, mz_uint flags);
@@ -1248,8 +1248,8 @@ mz_bool mz_zip_writer_init_heap(mz_zip_archive *pZip, size_t size_to_reserve_at_
 mz_bool mz_zip_writer_init_heap_v2(mz_zip_archive *pZip, size_t size_to_reserve_at_beginning, size_t initial_allocation_size, mz_uint flags);
 
 #ifndef MINIZ_NO_STDIO
-mz_bool mz_zip_writer_init_file(mz_zip_archive *pZip, const wchar_t *pFilename, mz_uint64 size_to_reserve_at_beginning);
-mz_bool mz_zip_writer_init_file_v2(mz_zip_archive *pZip, const wchar_t *pFilename, mz_uint64 size_to_reserve_at_beginning, mz_uint flags);
+mz_bool mz_zip_writer_init_file(mz_zip_archive *pZip, const char *pFilename, mz_uint64 size_to_reserve_at_beginning);
+mz_bool mz_zip_writer_init_file_v2(mz_zip_archive *pZip, const char *pFilename, mz_uint64 size_to_reserve_at_beginning, mz_uint flags);
 mz_bool mz_zip_writer_init_cfile(mz_zip_archive *pZip, MZ_FILE *pFile, mz_uint flags);
 #endif
 
