@@ -31,7 +31,7 @@ typedef unsigned char mz_validate_uint32[sizeof(mz_uint32) == 4 ? 1 : -1];
 typedef unsigned char mz_validate_uint64[sizeof(mz_uint64) == 8 ? 1 : -1];
 
 #ifdef __cplusplus
-extern "C" {
+//extern "C" {
 #endif
 
 /* ------------------- zlib-style API's */
@@ -571,7 +571,7 @@ const char *mz_error(int err)
 #endif /*MINIZ_NO_ZLIB_APIS */
 
 #ifdef __cplusplus
-}
+//}
 #endif
 
 /*
@@ -630,7 +630,7 @@ const char *mz_error(int err)
 
 
 #ifdef __cplusplus
-extern "C" {
+//extern "C" {
 #endif
 
 /* ------------------- Low-level Compression (independent from all decompression API's) */
@@ -2159,7 +2159,7 @@ void tdefl_compressor_free(tdefl_compressor *pComp)
 #endif
 
 #ifdef __cplusplus
-}
+//}
 #endif
 /**************************************************************************
  *
@@ -2190,7 +2190,7 @@ void tdefl_compressor_free(tdefl_compressor *pComp)
 
 
 #ifdef __cplusplus
-extern "C" {
+//extern "C" {
 #endif
 
 /* ------------------- Low-level Decompression (completely independent from all compression API's) */
@@ -2892,7 +2892,7 @@ void tinfl_decompressor_free(tinfl_decompressor *pDecomp)
 }
 
 #ifdef __cplusplus
-}
+//}
 #endif
 /**************************************************************************
  *
@@ -2925,7 +2925,7 @@ void tinfl_decompressor_free(tinfl_decompressor *pDecomp)
 #ifndef MINIZ_NO_ARCHIVE_APIS
 
 #ifdef __cplusplus
-extern "C" {
+//extern "C" {
 #endif
 
 /* ------------------- .ZIP archive reading */
@@ -2936,10 +2936,17 @@ extern "C" {
 #include <sys/stat.h>
 
 #if defined(_MSC_VER) || defined(__MINGW64__)
+#include <locale>
+#include <codecvt>
+#include <string>
 static FILE *mz_fopen(const char *pFilename, const char *pMode)
 {
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+	std::wstring sWideFilename = converter.from_bytes(pFilename);
+	std::wstring sWideMode = converter.from_bytes(pMode);
+
     FILE *pFile = NULL;
-    fopen_s(&pFile, pFilename, pMode);
+    _wfopen_s(&pFile, sWideFilename.c_str(), sWideMode.c_str());
     return pFile;
 }
 static FILE *mz_freopen(const char *pPath, const char *pMode, FILE *pStream)
@@ -7551,7 +7558,7 @@ mz_bool mz_zip_end(mz_zip_archive *pZip)
 }
 
 #ifdef __cplusplus
-}
+//}
 #endif
 
 #endif /*#ifndef MINIZ_NO_ARCHIVE_APIS*/
