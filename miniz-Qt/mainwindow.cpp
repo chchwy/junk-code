@@ -29,7 +29,7 @@ void MainWindow::openFileClicked()
     mz_zip_archive* mz = new mz_zip_archive;
     mz_zip_zero_struct(mz);
 
-    mz_bool ok = mz_zip_reader_init_file(mz, "D:\\新宿で20年.zip", 0);
+    mz_bool ok = mz_zip_reader_init_file(mz, fileName.toUtf8().data(), 0);
     qDebug("Open ok=%d\n", ok);
 
     int num = mz_zip_reader_get_num_files(mz);
