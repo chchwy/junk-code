@@ -24,6 +24,8 @@ void MainWindow::openFileClicked()
     QString fileName = QFileDialog::getOpenFileName(this, "", "D:/");
     qDebug() << fileName;
 
+    QString sBaseDir = QFileInfo(fileName).absolutePath();
+
     ui->fileNameLabel->setText(fileName);
 
     mz_zip_archive* mz = new mz_zip_archive;
@@ -43,9 +45,21 @@ void MainWindow::openFileClicked()
 
         if (stat->m_is_directory)
         {
-            //CreateDirectoryA(stat->m_filename, NULL);
+            QString sFolderName = QString::fromUtf8(stat->m_filename);
+            QString sFullPath = QDir(sBaseDir).filePath(sFolderName);
+
+            QDir d(sBaseDir);
+            bool mkdirOK = d.mkdir(sFolderName);
+            qDebug() << "mkdirOK=" << mkdirOK;
         }
-        ok = mz_zip_reader_extract_to_file(mz, i, stat->m_filename, 0);
-		qDebug("extract ok=%d\n", ok);
+        else
+        {
+            QDir d(sBaseDir);
+            bool b = d.makeAbsolute();
+            Q_ASSERT(b);
+            QString sFullPath = d.filePath(QString::fromUtf8(stat->m_filename));
+            ok = mz_zip_reader_extract_to_file(mz, i, sFullPath.toUtf8(), 0);
+            qDebug("extract ok=%d\n", ok);
+        }
     }
 }
