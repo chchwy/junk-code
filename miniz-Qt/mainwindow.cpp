@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->openFileButton, &QPushButton::clicked, this, &MainWindow::openFileClicked);
+    connect(ui->compressFolderButton, &QPushButton::clicked, this, &MainWindow::compressFolderClicked);
 }
 
 MainWindow::~MainWindow()
@@ -62,4 +63,22 @@ void MainWindow::openFileClicked()
             qDebug("extract ok=%d\n", ok);
         }
     }
+}
+
+void MainWindow::compressFolderClicked()
+{
+    qDebug() << "Button clicked";
+
+    mz_zip_archive* mz = new mz_zip_archive;
+    mz_zip_zero_struct(mz);
+
+    bool b = mz_zip_writer_init_file(mz, "D:/abc.zip", 0);
+    qDebug("Writer init ok = %d", b);
+
+    b = mz_zip_writer_add_file(mz, "aa/aa.txt", "D:/XYZ.jpg", "", 0, MZ_DEFAULT_COMPRESSION);
+    qDebug("Writer add file ok = %d", b);
+
+    b = mz_zip_writer_finalize_archive(mz);
+    qDebug("Writer finalize = %d", b);
+    mz_zip_writer_end(mz);
 }

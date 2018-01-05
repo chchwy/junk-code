@@ -16,6 +16,7 @@ public:
     ~MainWindow();
 
     void openFileClicked();
+    void compressFolderClicked();
 private:
     Ui::MainWindow *ui;
 };

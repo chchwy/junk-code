@@ -40,7 +40,7 @@
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="compressFileButton">
+   <widget class="QPushButton" name="compressFolderButton">
     <property name="geometry">
      <rect>
       <x>140</x>

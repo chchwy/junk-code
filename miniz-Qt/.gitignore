@@ -9,6 +9,10 @@
 *.so
 *.dll
 *.dylib
+*.db
+*.ipch
+debug/*
+release/*
 
 # Qt-es
 
