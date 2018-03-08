@@ -1,5 +1,4 @@
 #include "downloadmanager.h"
-#include <QCoreApplication>
 
 DownloadManager::DownloadManager()
 {
@@ -27,7 +26,8 @@ QString DownloadManager::saveFileName(const QUrl &url)
     if (basename.isEmpty())
         basename = "download";
 
-    if (QFile::exists(basename)) {
+    if (QFile::exists(basename))
+    {
         // already exists, don't overwrite
         int i = 0;
         basename += '.';
@@ -43,7 +43,8 @@ QString DownloadManager::saveFileName(const QUrl &url)
 bool DownloadManager::saveToDisk(const QString &filename, QIODevice *data)
 {
     QFile file(filename);
-    if (!file.open(QIODevice::WriteOnly)) {
+    if (!file.open(QIODevice::WriteOnly))
+    {
         fprintf(stderr, "Could not open %s for writing: %s\n",
                 qPrintable(filename),
                 qPrintable(file.errorString()));
@@ -56,23 +57,16 @@ bool DownloadManager::saveToDisk(const QString &filename, QIODevice *data)
     return true;
 }
 
+void DownloadManager::Add(QString oneDownloadUrl)
+{
+    mDownloadList.push_back(oneDownloadUrl);
+}
+
 void DownloadManager::execute()
 {
-    QStringList args = QCoreApplication::instance()->arguments();
-    args.takeFirst();           // skip the first argument, which is the program's name
-    if (args.isEmpty()) {
-        printf("Qt Download example - downloads all URLs in parallel\n"
-               "Usage: download url1 [url2... urlN]\n"
-               "\n"
-               "Downloads the URLs passed in the command-line to the local directory\n"
-               "If the target file already exists, a .0, .1, .2, etc. is appended to\n"
-               "differentiate.\n");
-        QCoreApplication::instance()->quit();
-        return;
-    }
-
-    foreach (QString arg, args) {
-        QUrl url = QUrl::fromEncoded(arg.toLocal8Bit());
+    for (QString arg : mDownloadList)
+    {
+        QUrl url(arg);
         doDownload(url);
     }
 }
@@ -80,7 +74,7 @@ void DownloadManager::execute()
 void DownloadManager::sslErrors(const QList<QSslError> &sslErrors)
 {
 #ifndef QT_NO_SSL
-    foreach (const QSslError &error, sslErrors)
+    for(const QSslError &error : sslErrors)
         fprintf(stderr, "SSL error: %s\n", qPrintable(error.errorString()));
 #else
     Q_UNUSED(sslErrors);
@@ -90,11 +84,14 @@ void DownloadManager::sslErrors(const QList<QSslError> &sslErrors)
 void DownloadManager::downloadFinished(QNetworkReply *reply)
 {
     QUrl url = reply->url();
-    if (reply->error()) {
+    if (reply->error())
+    {
         fprintf(stderr, "Download of %s failed: %s\n",
                 url.toEncoded().constData(),
                 qPrintable(reply->errorString()));
-    } else {
+    }
+    else
+    {
         QString filename = saveFileName(url);
         if (saveToDisk(filename, reply))
             printf("Download of %s succeeded (saved to %s)\n",
@@ -105,6 +102,7 @@ void DownloadManager::downloadFinished(QNetworkReply *reply)
     reply->deleteLater();
 
     if (currentDownloads.isEmpty())
-        // all downloads finished
-        QCoreApplication::instance()->quit();
+    {
+        qDebug() << "Done";
+    }
 }

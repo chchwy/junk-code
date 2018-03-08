@@ -24,6 +24,8 @@ public:
     QString saveFileName(const QUrl &url);
     bool saveToDisk(const QString &filename, QIODevice *data);
 
+    void Add(QString oneDownloadUrl);
+
 public slots:
     void execute();
     void downloadFinished(QNetworkReply *reply);
@@ -32,6 +34,8 @@ public slots:
 private:
     QNetworkAccessManager manager;
     QList<QNetworkReply*> currentDownloads;
+
+    std::vector<QString> mDownloadList;
 };
 
 #endif // DOWNLOADMANAGER_H
