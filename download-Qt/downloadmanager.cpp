@@ -59,6 +59,7 @@ bool DownloadManager::saveToDisk(const QString &filename, QIODevice *data)
 
 void DownloadManager::Add(QString oneDownloadUrl)
 {
+    qDebug() << "  Add=" << oneDownloadUrl;
     mDownloadList.push_back(oneDownloadUrl);
 }
 
@@ -94,7 +95,7 @@ void DownloadManager::downloadFinished(QNetworkReply *reply)
     {
         QString filename = saveFileName(url);
         if (saveToDisk(filename, reply))
-            printf("Download of %s succeeded (saved to %s)\n",
+            qDebug("Download of %s succeeded (saved to %s)\n",
                    url.toEncoded().constData(), qPrintable(filename));
     }
 
