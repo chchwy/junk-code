@@ -20,9 +20,9 @@ class DownloadManager: public QObject
     Q_OBJECT
 public:
     DownloadManager();
-    void doDownload(const QUrl &url);
-    QString saveFileName(const QUrl &url);
-    bool saveToDisk(const QString &filename, QIODevice *data);
+    void doDownload(const QUrl& url);
+    QString saveFileName(const QUrl& url);
+    bool saveToDisk(const QString& filename, QIODevice* data);
 
     void Add(QString oneDownloadUrl);
 
@@ -32,8 +32,8 @@ public slots:
     void sslErrors(const QList<QSslError> &errors);
 
 private:
-    QNetworkAccessManager manager;
-    QList<QNetworkReply*> currentDownloads;
+    QNetworkAccessManager mManager;
+    QList<QNetworkReply*> mCurrentDownloads;
 
     std::vector<QString> mDownloadList;
 };

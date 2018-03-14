@@ -2,23 +2,23 @@
 
 DownloadManager::DownloadManager()
 {
-    connect(&manager, SIGNAL(finished(QNetworkReply*)),
+    connect(&mManager, SIGNAL(finished(QNetworkReply*)),
             SLOT(downloadFinished(QNetworkReply*)));
 }
 
-void DownloadManager::doDownload(const QUrl &url)
+void DownloadManager::doDownload(const QUrl& url)
 {
     QNetworkRequest request(url);
-    QNetworkReply *reply = manager.get(request);
+    QNetworkReply* reply = mManager.get(request);
 
 #ifndef QT_NO_SSL
     connect(reply, SIGNAL(sslErrors(QList<QSslError>)), SLOT(sslErrors(QList<QSslError>)));
 #endif
 
-    currentDownloads.append(reply);
+    mCurrentDownloads.append(reply);
 }
 
-QString DownloadManager::saveFileName(const QUrl &url)
+QString DownloadManager::saveFileName(const QUrl& url)
 {
     QString path = url.path();
     QString basename = QFileInfo(path).fileName();
@@ -40,7 +40,7 @@ QString DownloadManager::saveFileName(const QUrl &url)
     return basename;
 }
 
-bool DownloadManager::saveToDisk(const QString &filename, QIODevice *data)
+bool DownloadManager::saveToDisk(const QString& filename, QIODevice* data)
 {
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly))
@@ -72,7 +72,7 @@ void DownloadManager::execute()
     }
 }
 
-void DownloadManager::sslErrors(const QList<QSslError> &sslErrors)
+void DownloadManager::sslErrors(const QList<QSslError>& sslErrors)
 {
 #ifndef QT_NO_SSL
     for(const QSslError &error : sslErrors)
@@ -82,7 +82,7 @@ void DownloadManager::sslErrors(const QList<QSslError> &sslErrors)
 #endif
 }
 
-void DownloadManager::downloadFinished(QNetworkReply *reply)
+void DownloadManager::downloadFinished(QNetworkReply* reply)
 {
     QUrl url = reply->url();
     if (reply->error())
@@ -99,10 +99,10 @@ void DownloadManager::downloadFinished(QNetworkReply *reply)
                    url.toEncoded().constData(), qPrintable(filename));
     }
 
-    currentDownloads.removeAll(reply);
+    mCurrentDownloads.removeAll(reply);
     reply->deleteLater();
 
-    if (currentDownloads.isEmpty())
+    if (mCurrentDownloads.isEmpty())
     {
         qDebug() << "Done";
     }
