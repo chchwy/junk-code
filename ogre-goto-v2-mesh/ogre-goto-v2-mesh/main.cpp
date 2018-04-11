@@ -32,8 +32,8 @@ bool executeCommand( QString strCmd )
 
 void Go()
 {
-    QString inFolder = "C:/Users/Matt/Desktop/Crown_3/script/mesh/apartment";
-    QString outFolder = "C:/Users/Matt/Desktop/Crown_3/script/mesh/apartment/out";
+    QString inFolder = "C:/Users/Matt/Desktop/Crown_3/script/mesh/others";
+    QString outFolder = "C:/Users/Matt/Desktop/Crown_3/script/mesh/others/out";
     QString sOgreMeshTool = "C:/SDK/OgreSDK/Ogre/Build/sdk/bin/release/OgreMeshTool.exe";
 
     QDirIterator it(inFolder, QDir::Files);
