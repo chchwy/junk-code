@@ -46,6 +46,7 @@
 # define WIN32_LEAN_AND_MEAN
 # include <windows.h>
 # include <io.h>
+# include <fcntl.h>
 #endif /* defined(WIN32) */
 
 #if !defined(HAVE_OPEN) && defined(WIN32)

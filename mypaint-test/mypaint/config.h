@@ -29,7 +29,7 @@
 #define HAVE_DLFCN_H 1
 
 /* Define if the GNU gettext() function is already present or preinstalled. */
-#define HAVE_GETTEXT 1
+//#define HAVE_GETTEXT 0
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -71,7 +71,7 @@
 #define LT_OBJDIR ".libs/"
 
 /* Define to 1 if glib is used */
-#define MYPAINT_CONFIG_USE_GLIB 0
+//#define MYPAINT_CONFIG_USE_GLIB 1
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "https://github.com/mypaint/libmypaint/issues"

@@ -22,7 +22,7 @@
 #ifdef HAVE_STDARG_H
 # include <stdarg.h>
 #else /* !HAVE_STDARG_H */
-# error Not enough var arg support!
+//# error Not enough var arg support!
 #endif /* HAVE_STDARG_H */
 
 #include "debug.h"
