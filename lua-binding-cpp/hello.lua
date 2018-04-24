@@ -10,3 +10,7 @@ player = {
 
 width = 1024
 height = 768
+
+function sum(x, y)
+  return x + y;
+end
