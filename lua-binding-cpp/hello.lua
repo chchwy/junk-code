@@ -14,3 +14,9 @@ height = 768
 function sum(x, y)
   return x + y;
 end
+
+local obj = kitten_meta()
+
+print(obj:get())
+obj:set("Michan!")
+print(obj:get())
