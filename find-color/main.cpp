@@ -3,14 +3,31 @@
 #include <QDirIterator>
 #include <QDebug>
 #include <vector>
+#include <functional>
 
-bool compareColor(const QColor& c)
+bool compareColor1(const QColor& c)
 {
-    if (qAbs(c.red() - 135) > 3)
+    QColor c_2(135, 117, 79);
+
+    if (qAbs(c.red() - c_2.red()) > 3)
         return false;
-    if (qAbs(c.green() - 117) > 3)
+    if (qAbs(c.green() - c_2.green()) > 3)
         return false;
-    if (qAbs(c.blue() -79) > 3)
+    if (qAbs(c.blue() - c_2.blue()) > 3)
+        return false;
+    return true;
+}
+
+
+bool compareColor8001(const QColor& c)
+{
+    QColor c_2(117, 99, 63); // for apartment 81.01 only
+
+    if (qAbs(c.red() - c_2.red()) > 3)
+        return false;
+    if (qAbs(c.green() - c_2.green()) > 3)
+        return false;
+    if (qAbs(c.blue() - c_2.blue()) > 3)
         return false;
     return true;
 }
@@ -28,7 +45,7 @@ struct hotspot_group
 
 bool check_pos(int x1, int y1, int x2, int y2)
 {
-    if (qAbs(x1 - x2) < 100 && qAbs(y1 - y2) < 100)
+    if (qAbs(x1 - x2) < 60 && qAbs(y1 - y2) < 60)
         return true;
     return false;
 }
@@ -71,7 +88,7 @@ void do_average(hotspot_group& g)
     g.y = (sumy / g.points.size());
 }
 
-QString find_hotspots(QString file_name)
+QString find_hotspots(QString file_name, std::function<bool(const QColor&)> compareColor)
 {
     all_hotspots.clear();
 
@@ -130,8 +147,14 @@ int main(int argc, char *argv[])
     while(dir_it.hasNext())
     {
         QString file_name = dir_it.next();
-        //qDebug() << file_name;
-        QString oneApartment = find_hotspots(file_name);
+
+        std::function<bool(const QColor&)> comparator;
+        if (file_name.contains("8101"))
+            comparator = compareColor8001;
+        else
+            comparator = compareColor1;
+
+        QString oneApartment = find_hotspots(file_name, comparator);
         QString final_result = QString("[%1] = { %2},").arg(index).arg(oneApartment);
         qDebug() << final_result;
         fout << final_result << "\n";
