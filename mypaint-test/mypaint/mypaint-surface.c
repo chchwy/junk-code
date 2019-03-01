@@ -62,6 +62,7 @@ void
 mypaint_surface_init(MyPaintSurface *self)
 {
     self->refcount = 1;
+    self->save_png = 0;
 }
 
 /**

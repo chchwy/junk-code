@@ -81,6 +81,11 @@ mypaint_fixed_tiled_surface_interface(MyPaintFixedTiledSurface *self)
     return (MyPaintSurface *)self;
 }
 
+uint16_t* mypaint_fixed_tiled_surface_get_buffer(MyPaintFixedTiledSurface *self)
+{
+    return self->tile_buffer;
+}
+
 int
 mypaint_fixed_tiled_surface_get_width(MyPaintFixedTiledSurface *self)
 {
