@@ -10,6 +10,8 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "tiny_gltf.h"
 
+using std::cout;
+
 class CNode {
 
 };
@@ -26,7 +28,6 @@ bool contains(const std::string& str, const std::string& niddle) {
 class GLTFWizard {
 
 public:
-
     void Load(std::string path)
     {
         std::string errorMessage;
@@ -35,27 +36,27 @@ public:
 
         if (ok)
         {
-            std::cout << "GLTF is good" << std::endl;
+            cout << "GLTF is good" << std::endl;
             
             if (!warningMessage.empty()) {
-                std::cout << "Warnings:" << warningMessage << std::endl;
+                cout << "Warnings:" << warningMessage << std::endl;
             }
         } 
         else
         {
-            std::cout << "ERROR:" << errorMessage << std::endl;
+            cout << "ERROR:" << errorMessage << std::endl;
             if (!warningMessage.empty()) {
-                std::cout << "Warnings:" << warningMessage << std::endl;
+                cout << "Warnings:" << warningMessage << std::endl;
             }
             return;
         }
 
-        std::cout << "Default scene is " << model.defaultScene << "\n";
-        std::cout << "All scenes\n";
+        cout << "Default scene is " << model.defaultScene << "\n";
+        cout << "All scenes\n";
 
         for (tinygltf::Scene scene : model.scenes)
         {
-            std::cout << " Scene: " << scene.name;
+            cout << " Scene: " << scene.name;
 
             for (int nodeIndex : scene.nodes) {
                 tinygltf::Node& node = model.nodes[nodeIndex];
@@ -68,10 +69,11 @@ public:
 
     int traverseNode(tinygltf::Model& model, tinygltf::Node& node, int level)
     {
-        for (int i = 0; i < level; ++i) std::cout << "  ";
-        std::cout << node.name << "\n";
+        //for (int i = 0; i < level; ++i) cout << "  ";
+        //cout << node.name << "\n";
 
-        node.name = rectifyName(node.name);
+        if (node.mesh != -1)
+            node.name = rectifyName(node.name);
 
         for (int childNodeIndex : node.children)
         {
@@ -83,24 +85,44 @@ public:
 
     std::string rectifyName(const std::string& oldName)
     {
-        int pos = oldName.find("_");
-        std::cout << "pos=" << pos << "\n";
+        std::string newName = "";
+
+        int pos = oldName.rfind("_");
+        
         if (pos != std::string::npos) {
-            std::string nextPart = oldName.substr(pos);
-            std::cout << nextPart << std::endl;
+            std::string nextPart = oldName.substr(pos + 1);
+            //cout << nextPart << std::endl;
+            newName = nextPart;
         }
 
-        if (startsWith(oldName, "appt")) {
-
+        int digitPos = 0;
+        for (int i = 0; i < newName.size(); ++i)
+        {
+            if (isdigit(newName[i]))
+            {
+                digitPos = i;
+                break;
+            }
         }
+
+        newName = newName.substr(digitPos);
+        
+
+        int number = std::stoi(newName);
+        char buffer[1024];
+        memset(buffer, 0, sizeof(buffer));
+        sprintf_s(buffer, 1024, "%03d", number);
+
+        newName = buffer;
+        cout << newName << std::endl;
         return oldName;
     }
 
     void stats()
     {
-        std::cout << "Node=" << model.nodes.size() << "\n";
-        std::cout << "Mesh=" << model.meshes.size() << "\n";
-        std::cout << "Materials=" << model.materials.size() << "\n";
+        cout << "Node=" << model.nodes.size() << "\n";
+        cout << "Mesh=" << model.meshes.size() << "\n";
+        cout << "Materials=" << model.materials.size() << "\n";
     }
 
     void write(std::string path)
@@ -116,7 +138,7 @@ public:
 
 int main()
 {
-	std::cout << "Hello glTF wizard." << std::endl;
+	cout << "Hello glTF wizard." << std::endl;
     std::string path = "C:\\Temp\\highlight\\highlight_meshes_a123.gltf";
 
     GLTFWizard wizard;
