@@ -6030,7 +6030,7 @@ bool TinyGLTF::WriteGltfSceneToFile(Model *model, const std::string &filename,
   if (writeBinary) {
     WriteBinaryGltfFile(filename, output.dump());
   } else {
-    WriteGltfFile(filename, output.dump(prettyPrint ? 2 : -1));
+    WriteGltfFile(filename, output.dump(prettyPrint ? 1 : -1));
   }
 
   return true;

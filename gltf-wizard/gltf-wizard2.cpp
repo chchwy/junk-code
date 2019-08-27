@@ -94,6 +94,10 @@ public:
             //cout << nextPart << std::endl;
             newName = nextPart;
         }
+        else
+        {
+            newName = oldName;
+        }
 
         int digitPos = 0;
         for (int i = 0; i < newName.size(); ++i)
@@ -150,7 +154,7 @@ int main()
     model2.asset.generator = "glTF Wizard!";
 
     tinygltf::TinyGLTF writer;
-    writer.WriteGltfSceneToFile(&model2, "C:\\temp\\highlight\\out\\out.gltf");
+    writer.WriteGltfSceneToFile(&model2, "C:\\temp\\highlight\\out\\out.gltf", false, false, true);
     
 	return 0;
 }
