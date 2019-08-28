@@ -21,8 +21,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::perforemResizing()
 {
-    QString path = "C:\\Users\\Matt\\Downloads\\2019-07-12_ParksRedHill_glTF_update\\exterior";
-    QDirIterator it(path, QStringList() << "*.png", QDir::Files);
+    QString path = "C:\\Users\\Matt\\Desktop\\ok\\building1_level4";
+    QDirIterator it(path, QStringList() << "*.jpg", QDir::Files);
 
     qDebug() << "test!";
     while(it.hasNext())
@@ -34,7 +34,7 @@ void MainWindow::perforemResizing()
         int w = 512;
         int h = 512;
         if (img.width() >= 2000) {
-            w = h = 512;
+            w = h = 1024;
         } else if (img.width() > 1000) {
             w = h = 256;
         }

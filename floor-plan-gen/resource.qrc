@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/rsc">
+        <file>fp_source.gltf</file>
+    </qresource>
+</RCC>

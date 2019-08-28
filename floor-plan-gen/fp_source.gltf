@@ -1,0 +1,167 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 121,
+      "max": [
+        5,
+        1.1102230246251565e-16,
+        5
+      ],
+      "min": [
+        -5,
+        -1.1102230246251565e-16,
+        -5
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1452,
+      "componentType": 5126,
+      "count": 121,
+      "max": [0,1,-0],
+      "min": [0,1,-0],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 121,
+      "max": [-1,0,-0,1],
+      "min": [-1,0,-0,1],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 121,
+      "max": [1,1],
+      "min": [0,0],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 600,
+      "max": [120],
+      "min": [0],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "title": "Plane UV"
+    },
+    "generator": "Sketchfab-6.9.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 2400,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 968,
+      "byteOffset": 2400,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2904,
+      "byteOffset": 3368,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1936,
+      "byteOffset": 6272,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 8208,
+      "uri": "plane.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "#####"
+    }
+  ],
+  "materials": [
+    {
+      "alphaCutoff": 0.10,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "emissiveFactor": [0,0,0],
+      "name": "phong153_3",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [1,1,1,1],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.567
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Plane_0",
+      "mesh": 0
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9729,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}
+

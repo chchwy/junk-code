@@ -1,0 +1,5 @@
+/out
+.vs
+*.tlog
+*.exe
+*.idb
