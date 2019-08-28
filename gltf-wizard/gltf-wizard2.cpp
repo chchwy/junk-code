@@ -69,8 +69,8 @@ public:
 
     int traverseNode(tinygltf::Model& model, tinygltf::Node& node, int level)
     {
-        //for (int i = 0; i < level; ++i) cout << "  ";
-        //cout << node.name << "\n";
+        for (int i = 0; i < level; ++i) cout << "  ";
+        cout << node.name << "\n";
 
         if (node.mesh != -1)
             node.name = rectifyName(node.name);
@@ -110,7 +110,6 @@ public:
         }
 
         newName = newName.substr(digitPos);
-        
 
         int number = std::stoi(newName);
         char buffer[1024];
@@ -118,8 +117,8 @@ public:
         sprintf_s(buffer, 1024, "%03d", number);
 
         newName = buffer;
-        cout << newName << std::endl;
-        return oldName;
+        cout << oldName << ", " << newName << std::endl;
+        return newName;
     }
 
     void stats()
@@ -152,6 +151,7 @@ int main()
     tinygltf::Model& model2 = wizard.model;
     model2.asset.version = "2.0";
     model2.asset.generator = "glTF Wizard!";
+    model2.animations.clear();
 
     tinygltf::TinyGLTF writer;
     writer.WriteGltfSceneToFile(&model2, "C:\\temp\\highlight\\out\\out.gltf", false, false, true);
