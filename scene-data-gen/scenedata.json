@@ -23,7 +23,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_001.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            109.2703,
+            -2.65,
+            30.1959
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -60,7 +76,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_002.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            118.4328,
+            -2.65,
+            24.5585
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -97,7 +129,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_003.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            126.6368,
+            -2.65,
+            35.2221
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -134,7 +182,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_004.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            103.4066,
+            1.5162,
+            37.8208
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -171,7 +235,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_005.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            115.817,
+            1.5162,
+            27.7108
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -208,7 +288,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_006.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            126.1716,
+            1.5162,
+            36.114
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -245,7 +341,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_007.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            116.793,
+            1.5162,
+            48.3862
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -282,7 +394,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_008.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            104.2838,
+            4.8306,
+            40.2432
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -319,7 +447,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_009.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            108.2725,
+            4.8306,
+            33.1589
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -356,7 +500,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_010.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            116.5754,
+            4.8306,
+            27.731
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -393,7 +553,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_011.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            125.6631,
+            4.8306,
+            36.477
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -430,7 +606,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_012.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            116.6405,
+            4.8306,
+            47.1765
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -467,7 +659,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_013.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            104.311,
+            7.8338,
+            40.3309
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -504,7 +712,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_014.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            108.3159,
+            7.8338,
+            33.3169
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -541,7 +765,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_015.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            116.5989,
+            7.8338,
+            27.8783
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -578,7 +818,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_016.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            125.5457,
+            7.8338,
+            36.5863
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -615,7 +871,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_017.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            116.5267,
+            7.8338,
+            47.2262
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -652,7 +924,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_018.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            104.1998,
+            10.9763,
+            40.2142
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -689,7 +977,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_019.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            113.2334,
+            10.9763,
+            29.3496
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -726,7 +1030,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_020.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            124.4891,
+            10.9763,
+            37.6481
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
@@ -763,7 +1083,23 @@
         "nodeVisibility": {},
         "path": "floorplan/fp_b23_a_021.gltf",
         "pickable": false,
-        "transform": {},
+        "transform": {
+          "position": [
+            114.2722,
+            10.9763,
+            47.5911
+          ],
+          "rotation": [
+            0,
+            -36,
+            0
+          ],
+          "scale": [
+            1.8,
+            1,
+            1.8
+          ]
+        },
         "type": "floorplan2D"
       },
       {
