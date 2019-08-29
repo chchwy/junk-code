@@ -4,9 +4,25 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <map>
 #include "json.hpp"
 
 using json = nlohmann::json;
+
+struct Vec3 {
+    float x = 0;
+    float y = 0;
+    float z = 0;
+    Vec3() {}
+    Vec3(float px, float py, float pz) {
+        x = px; y = py; z = pz;
+    }
+};
+
+std::map<std::string, Vec3> positionMap = {
+    { "019", Vec3(114.3, 11, 29.9) },
+    { "020", Vec3(123.82, 11.1, 38.33) }
+};
 
 json getCameraObject(json camPosArray)
 {
@@ -111,46 +127,19 @@ int main()
         char buffer[1024];
         sprintf_s(buffer, 1024, "%03d", i);
         std::string apartmentNumber = std::string(buffer);
-        /*
-        json scene = json::object();
-
         
+        sprintf_s(buffer, 1024, "00000000-0000-0000-0000-%012d", i);
+        std::string sceneGUID = std::string(buffer);
+
+        json scene = json::object();
         scene["name"] = "Block23_Apt_" + apartmentNumber;
-        scene["sceneId"] = "00000000-0000-0000-0000-000000000000";
+        scene["sceneId"] = sceneGUID;
         scene["type"] = "unit";
         scene["camera"] = getCameraObject(findCameraPosByName(camPos, apartmentNumber));
         scene["models"] = getModelsArray(apartmentNumber);
         scene["components"] = json::array({ json::object({ {"name", "FloorPlanSwitch"} }) });
         
         j.push_back(scene);
-        */
-        
-
-        json plan2d = json::object();
-        /*{
-              "name": "FloorPlan2D 019 ",
-              "path": "floorplan/FloorPlan019.glb",
-              "transform": {
-                "position": [114.189, 10, 29.044],
-                "rotation": [0, 133, 0],
-                "scale":[10 ,10, 10],
-              },
-              "nodeVisibility":{},
-              "type": "floorplan2D",
-              "pickable": false,
-          }*/
-        plan2d["name"] = "2D FloorPlan " + apartmentNumber;
-        plan2d["path"] = "floorplan/fp_b23_a_" + apartmentNumber + ".gltf";
-        plan2d["type"] = "floorplan2D";
-        plan2d["transform"] = json::object();
-        
-        plan2d["transform"]["position"] = findCameraPosByName(camPos, apartmentNumber);
-        plan2d["transform"]["rotation"] = json::array({0, 54, 0});
-        plan2d["transform"]["scale"] = json::array({1, 1, 1});
-
-        plan2d["nodeVisibility"] = json::object();
-        plan2d["pickable"] = false;
-        j.push_back(plan2d);
     }
 
     std::string str = j.dump(2); // stringify

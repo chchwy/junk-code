@@ -1,505 +1,779 @@
-
+[
   {
-    "name": "2D FloorPlan 001",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_001.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         109.2703,
         -2.65,
         30.1959
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 001",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_001.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 001",
+        "path": "floorplan/Apartment001.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_001",
+    "sceneId": "00000000-0000-0000-0000-000000000001",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 002",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_002.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         118.4328,
         -2.65,
         24.5585
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 002",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_002.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 002",
+        "path": "floorplan/Apartment002.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_002",
+    "sceneId": "00000000-0000-0000-0000-000000000002",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 003",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_003.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         126.6368,
         -2.65,
         35.2221
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 003",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_003.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 003",
+        "path": "floorplan/Apartment003.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_003",
+    "sceneId": "00000000-0000-0000-0000-000000000003",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 004",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_004.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         103.4066,
         1.5162,
         37.8208
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 004",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_004.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 004",
+        "path": "floorplan/Apartment004.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_004",
+    "sceneId": "00000000-0000-0000-0000-000000000004",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 005",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_005.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         115.817,
         1.5162,
         27.7108
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 005",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_005.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 005",
+        "path": "floorplan/Apartment005.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_005",
+    "sceneId": "00000000-0000-0000-0000-000000000005",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 006",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_006.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         126.1716,
         1.5162,
         36.114
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 006",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_006.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 006",
+        "path": "floorplan/Apartment006.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_006",
+    "sceneId": "00000000-0000-0000-0000-000000000006",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 007",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_007.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         116.793,
         1.5162,
         48.3862
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 007",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_007.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 007",
+        "path": "floorplan/Apartment007.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_007",
+    "sceneId": "00000000-0000-0000-0000-000000000007",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 008",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_008.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         104.2838,
         4.8306,
         40.2432
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 008",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_008.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 008",
+        "path": "floorplan/Apartment008.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_008",
+    "sceneId": "00000000-0000-0000-0000-000000000008",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 009",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_009.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         108.2725,
         4.8306,
         33.1589
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 009",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_009.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 009",
+        "path": "floorplan/Apartment009.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_009",
+    "sceneId": "00000000-0000-0000-0000-000000000009",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 010",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_010.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         116.5754,
         4.8306,
         27.731
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 010",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_010.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 010",
+        "path": "floorplan/Apartment010.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_010",
+    "sceneId": "00000000-0000-0000-0000-000000000010",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 011",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_011.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         125.6631,
         4.8306,
         36.477
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 011",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_011.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 011",
+        "path": "floorplan/Apartment011.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_011",
+    "sceneId": "00000000-0000-0000-0000-000000000011",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 012",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_012.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         116.6405,
         4.8306,
         47.1765
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 012",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_012.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 012",
+        "path": "floorplan/Apartment012.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_012",
+    "sceneId": "00000000-0000-0000-0000-000000000012",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 013",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_013.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         104.311,
         7.8338,
         40.3309
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 013",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_013.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 013",
+        "path": "floorplan/Apartment013.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_013",
+    "sceneId": "00000000-0000-0000-0000-000000000013",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 014",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_014.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         108.3159,
         7.8338,
         33.3169
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 014",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_014.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 014",
+        "path": "floorplan/Apartment014.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_014",
+    "sceneId": "00000000-0000-0000-0000-000000000014",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 015",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_015.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         116.5989,
         7.8338,
         27.8783
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 015",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_015.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 015",
+        "path": "floorplan/Apartment015.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_015",
+    "sceneId": "00000000-0000-0000-0000-000000000015",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 016",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_016.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         125.5457,
         7.8338,
         36.5863
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 016",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_016.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 016",
+        "path": "floorplan/Apartment016.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_016",
+    "sceneId": "00000000-0000-0000-0000-000000000016",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 017",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_017.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         116.5267,
         7.8338,
         47.2262
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 017",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_017.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 017",
+        "path": "floorplan/Apartment017.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_017",
+    "sceneId": "00000000-0000-0000-0000-000000000017",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 018",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_018.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         104.1998,
         10.9763,
         40.2142
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 018",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_018.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 018",
+        "path": "floorplan/Apartment018.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_018",
+    "sceneId": "00000000-0000-0000-0000-000000000018",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 019",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_019.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         113.2334,
         10.9763,
         29.3496
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 019",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_019.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 019",
+        "path": "floorplan/Apartment019.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_019",
+    "sceneId": "00000000-0000-0000-0000-000000000019",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 020",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_020.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         124.4891,
         10.9763,
         37.6481
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 020",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_020.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 020",
+        "path": "floorplan/Apartment020.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_020",
+    "sceneId": "00000000-0000-0000-0000-000000000020",
+    "type": "unit"
   },
   {
-    "name": "2D FloorPlan 021",
-    "nodeVisibility": {},
-    "path": "floorplan/fp_b23_a_021.gltf",
-    "pickable": false,
-    "transform": {
-      "position": [
+    "camera": {
+      "alpha": 45,
+      "beta": 54,
+      "center": [
         114.2722,
         10.9763,
         47.5911
       ],
-      "rotation": [
-        0,
-        54,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
+      "distance": 30,
+      "maxDistance": 60,
+      "minDistance": 15
     },
-    "type": "floorplan2D"
+    "components": [
+      {
+        "name": "FloorPlanSwitch"
+      }
+    ],
+    "models": [
+      {
+        "name": "2D FloorPlan 021",
+        "nodeVisibility": {},
+        "path": "floorplan/fp_b23_a_021.gltf",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan2D"
+      },
+      {
+        "name": "3D FloorPlan 021",
+        "path": "floorplan/Apartment021.glb",
+        "transform": {}
+      }
+    ],
+    "name": "Block23_Apt_021",
+    "sceneId": "00000000-0000-0000-0000-000000000021",
+    "type": "unit"
   }
+]
