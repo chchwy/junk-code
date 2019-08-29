@@ -97,7 +97,7 @@ json getModelsArray(std::string apartmentNumber)
           "pickable": false,
     },*/
     plan3d["name"] = "3D FloorPlan " + apartmentNumber;
-    plan3d["path"] = "floorplan/Apartment" + apartmentNumber + ".glb";
+    plan3d["path"] = "floorplan/building1_level4.glb";
     plan3d["type"] = "floorplan3D";
     plan3d["transform"] = json::object();
     plan3d["nodeVisibility"] = json::object();

@@ -44,8 +44,11 @@
       },
       {
         "name": "3D FloorPlan 001",
-        "path": "floorplan/Apartment001.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_001",
@@ -97,8 +100,11 @@
       },
       {
         "name": "3D FloorPlan 002",
-        "path": "floorplan/Apartment002.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_002",
@@ -150,8 +156,11 @@
       },
       {
         "name": "3D FloorPlan 003",
-        "path": "floorplan/Apartment003.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_003",
@@ -203,8 +212,11 @@
       },
       {
         "name": "3D FloorPlan 004",
-        "path": "floorplan/Apartment004.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_004",
@@ -256,8 +268,11 @@
       },
       {
         "name": "3D FloorPlan 005",
-        "path": "floorplan/Apartment005.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_005",
@@ -309,8 +324,11 @@
       },
       {
         "name": "3D FloorPlan 006",
-        "path": "floorplan/Apartment006.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_006",
@@ -362,8 +380,11 @@
       },
       {
         "name": "3D FloorPlan 007",
-        "path": "floorplan/Apartment007.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_007",
@@ -415,8 +436,11 @@
       },
       {
         "name": "3D FloorPlan 008",
-        "path": "floorplan/Apartment008.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_008",
@@ -468,8 +492,11 @@
       },
       {
         "name": "3D FloorPlan 009",
-        "path": "floorplan/Apartment009.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_009",
@@ -521,8 +548,11 @@
       },
       {
         "name": "3D FloorPlan 010",
-        "path": "floorplan/Apartment010.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_010",
@@ -574,8 +604,11 @@
       },
       {
         "name": "3D FloorPlan 011",
-        "path": "floorplan/Apartment011.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_011",
@@ -627,8 +660,11 @@
       },
       {
         "name": "3D FloorPlan 012",
-        "path": "floorplan/Apartment012.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_012",
@@ -680,8 +716,11 @@
       },
       {
         "name": "3D FloorPlan 013",
-        "path": "floorplan/Apartment013.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_013",
@@ -733,8 +772,11 @@
       },
       {
         "name": "3D FloorPlan 014",
-        "path": "floorplan/Apartment014.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_014",
@@ -786,8 +828,11 @@
       },
       {
         "name": "3D FloorPlan 015",
-        "path": "floorplan/Apartment015.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_015",
@@ -839,8 +884,11 @@
       },
       {
         "name": "3D FloorPlan 016",
-        "path": "floorplan/Apartment016.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_016",
@@ -892,8 +940,11 @@
       },
       {
         "name": "3D FloorPlan 017",
-        "path": "floorplan/Apartment017.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_017",
@@ -945,8 +996,11 @@
       },
       {
         "name": "3D FloorPlan 018",
-        "path": "floorplan/Apartment018.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_018",
@@ -998,8 +1052,11 @@
       },
       {
         "name": "3D FloorPlan 019",
-        "path": "floorplan/Apartment019.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_019",
@@ -1051,8 +1108,11 @@
       },
       {
         "name": "3D FloorPlan 020",
-        "path": "floorplan/Apartment020.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_020",
@@ -1104,8 +1164,11 @@
       },
       {
         "name": "3D FloorPlan 021",
-        "path": "floorplan/Apartment021.glb",
-        "transform": {}
+        "nodeVisibility": {},
+        "path": "floorplan/building1_level4.glb",
+        "pickable": false,
+        "transform": {},
+        "type": "floorplan3D"
       }
     ],
     "name": "Block23_Apt_021",
