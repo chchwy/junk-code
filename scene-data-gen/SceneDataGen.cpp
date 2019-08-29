@@ -9,20 +9,28 @@
 
 using json = nlohmann::json;
 
-struct Vec3 {
-    float x = 0;
-    float y = 0;
-    float z = 0;
-    Vec3() {}
-    Vec3(float px, float py, float pz) {
-        x = px; y = py; z = pz;
-    }
-};
+json cameraPos;
 
-std::map<std::string, Vec3> positionMap = {
-    { "019", Vec3(114.3, 11, 29.9) },
-    { "020", Vec3(123.82, 11.1, 38.33) }
-};
+json prepareCameraPos()
+{
+    std::ifstream fin("campos.json");
+    json campos;
+    fin >> campos;
+    fin.close();
+    //std::cout<< campos.dump(2);
+    return campos;
+}
+
+json findCameraPosByName(std::string apartmentNumber) {
+    for (auto c : cameraPos)
+    {
+        if (c["name"] == apartmentNumber)
+        {
+            return c["pos"];
+        }
+    }
+    return json::array();
+}
 
 json getCameraObject(json camPosArray)
 {
@@ -64,7 +72,13 @@ json getModelsArray(std::string apartmentNumber)
     plan2d["name"] = "2D FloorPlan " + apartmentNumber;
     plan2d["path"] = "floorplan/fp_b23_a_" + apartmentNumber + ".gltf";
     plan2d["type"] = "floorplan2D";
-    plan2d["transform"] = json::object();
+    json transform = json::object();
+    {
+        transform["position"] = findCameraPosByName(apartmentNumber);
+        transform["rotation"] = json::array({ 0, -36, 0 });
+        transform["scale"] = json::array({ 1.8, 1, 1.8 });
+    }
+    plan2d["transform"] = transform;
     plan2d["nodeVisibility"] = json::object();
     plan2d["pickable"] = false;
     modelsArray.push_back(plan2d);
@@ -84,41 +98,20 @@ json getModelsArray(std::string apartmentNumber)
     },*/
     plan3d["name"] = "3D FloorPlan " + apartmentNumber;
     plan3d["path"] = "floorplan/Apartment" + apartmentNumber + ".glb";
-    plan2d["type"] = "floorplan3D";
+    plan3d["type"] = "floorplan3D";
     plan3d["transform"] = json::object();
-    plan2d["nodeVisibility"] = json::object();
-    plan2d["pickable"] = false;
+    plan3d["nodeVisibility"] = json::object();
+    plan3d["pickable"] = false;
     modelsArray.push_back(plan3d);
 
     return modelsArray;
 }
 
-json prepareCameraPos()
-{
-    std::ifstream fin("campos.json");
-    json campos;
-    fin >> campos;
-    std::cout<< campos.dump(2);
-    return campos;
-}
-
-json findCameraPosByName(json camPos, std::string apartmentNumber) {
-    for (auto c : camPos)
-    {
-        if (c["name"] == apartmentNumber)
-        {
-            //std::cout << c["name"] << c["pos"] << std::endl;
-            return c["pos"];
-        }
-    }
-    return json::array();
-}
-
 int main()
 {
-    json camPos = prepareCameraPos();
-
     std::cout << "Hello World!\n";
+
+    cameraPos = prepareCameraPos();
 
     json j = json::array();
     
@@ -135,7 +128,7 @@ int main()
         scene["name"] = "Block23_Apt_" + apartmentNumber;
         scene["sceneId"] = sceneGUID;
         scene["type"] = "unit";
-        scene["camera"] = getCameraObject(findCameraPosByName(camPos, apartmentNumber));
+        scene["camera"] = getCameraObject(findCameraPosByName(apartmentNumber));
         scene["models"] = getModelsArray(apartmentNumber);
         scene["components"] = json::array({ json::object({ {"name", "FloorPlanSwitch"} }) });
         
