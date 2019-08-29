@@ -3,3 +3,4 @@
 *.tlog
 *.exe
 *.idb
+*.vcxproj.user

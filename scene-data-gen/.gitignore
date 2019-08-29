@@ -3,3 +3,5 @@
 *.tlog
 *.exe
 *.idb
+/Debug
+/Release
