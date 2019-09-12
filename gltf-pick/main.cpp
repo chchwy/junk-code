@@ -1,5 +1,8 @@
 #include <QCoreApplication>
 #include <QCommandLineParser>
+#include <QDebug>
+
+#include "gltfpicker.h"
 
 int main(int argc, char* argv[])
 {
@@ -20,7 +23,26 @@ int main(int argc, char* argv[])
     const QStringList args = parser.positionalArguments();
     // source is args.at(0), destination is args.at(1)
 
+    if (args.size() < 2)
+    {
+        qInfo() << "Wrong parameter number";
+        return 0;
+    }
 
+    GLTFPicker picker;
+    bool ok = picker.Run(args[0], args[1]);
+
+    if (ok)
+    {
+        qInfo() << "Done.";
+    }
+    else
+    {
+        qInfo() << "Oooops! something went wrong.";
+        qInfo() << "=============================";
+        qInfo() << picker.error();
+        qInfo() << "=============================";
+    }
 
     return app.exec();
 }
