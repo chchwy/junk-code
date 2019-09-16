@@ -13,11 +13,15 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget* parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() override;
+
+    void dragEnterEvent(QDragEnterEvent* event) override;
+    void dropEvent(QDropEvent* event) override;
+
+    void resizeImages(const QList<QString>& imgFiles);
 
 private:
-    void perforemResizing();
-
+    void quickAndDirtyResizing();
     Ui::MainWindow *ui;
 };
 
