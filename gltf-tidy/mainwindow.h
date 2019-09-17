@@ -23,6 +23,7 @@ public:
 
     bool writeJson(QJsonObject rootObject, QString outPath);
 
+    void log(QString msg);
 private:
     QString mErrors;
     Ui::MainWindow *ui;

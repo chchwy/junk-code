@@ -50,10 +50,16 @@ void MainWindow::processAllGltf(QList<QString> gltfFiles)
 {
     for (const QString& s : gltfFiles)
     {
-        processOneGltf(s);
-        ui->logWidget->addItem(QString("Processing %1").arg(s));
+        bool ok = processOneGltf(s);
+        log(QString("Processing %1").arg(s));
+        if (!ok)
+        {
+            log(QString("Error: %1").arg(mErrors));
+        }
+
         QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
     }
+    log("Done!");
 }
 
 bool MainWindow::processOneGltf(QString glTFPath)
@@ -132,4 +138,9 @@ bool MainWindow::writeJson(QJsonObject rootObject, QString outPath)
     file.write(newContent);
     file.close();
     return true;
+}
+
+void MainWindow::log(QString msg)
+{
+    ui->logWidget->addItem(msg);
 }
