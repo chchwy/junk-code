@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMap>
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,7 @@ public:
     QString randomText(int n);
     void Go();
 private:
+    QMap<int, int> m;
     Ui::MainWindow *ui;
 };
 
