@@ -4,16 +4,8 @@
       "bufferView": 2,
       "componentType": 5126,
       "count": 121,
-      "max": [
-        5,
-        1.1102230246251565e-16,
-        5
-      ],
-      "min": [
-        -5,
-        -1.1102230246251565e-16,
-        -5
-      ],
+      "max": [5, 1.1102230246251565e-16, 5 ],
+      "min": [-5, -1.1102230246251565e-16, -5],
       "type": "VEC3"
     },
     {
@@ -52,9 +44,8 @@
   ],
   "asset": {
     "extras": {
-      "title": "Plane UV"
+      "title": "Plane"
     },
-    "generator": "Sketchfab-6.9.0",
     "version": "2.0"
   },
   "bufferViews": [
@@ -98,16 +89,16 @@
   ],
   "images": [
     {
-      "uri": "#####"
+      "uri": "##image_url##"
     }
   ],
   "materials": [
     {
+      "name": "##material_name##",
       "alphaCutoff": 0.10,
       "alphaMode": "MASK",
       "doubleSided": true,
       "emissiveFactor": [0,0,0],
-      "name": "phong153_3",
       "pbrMetallicRoughness": {
         "baseColorFactor": [1,1,1,1],
         "baseColorTexture": {
@@ -153,7 +144,7 @@
   "scene": 0,
   "scenes": [
     {
-      "name": "Scene",
+      "name": "Plane Scene",
       "nodes": [0]
     }
   ],
