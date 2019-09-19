@@ -7,6 +7,7 @@
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QMimeData>
+#include <QPainter>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -41,28 +42,75 @@ void MainWindow::dropEvent(QDropEvent* event)
         localFiles.append(url.toLocalFile());
     }
     qDebug() << localFiles;
-    resizeImages(localFiles);
+
+    processImages(localFiles);
 }
 
-void MainWindow::resizeImages(const QList<QString>& imgFiles)
+void MainWindow::processImages(const QList<QString>& imgFiles)
 {
+    bool keepAspectRatio = ui->keepAspectCheckBox->isChecked();
     for (QString imgPath : imgFiles)
     {
-        QImage img(imgPath);
-        qDebug() << imgPath << ", " << img.width() << "x" << img.height();
-
-        int originalWidth = img.width();
-        int originalHeight = img.height();
-
-        int size = ui->imgSizeSpinBox->value();
-        int w = (size < originalWidth)? size : originalWidth;
-        int h = (size < originalHeight)? size : originalHeight;
-        QImage img2 = img.scaled(w, h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        img2.save(imgPath);
-
-        ui->logWidget->addItem(QString("Resize %1 to %2x%2").arg(imgPath).arg(w).arg(h));
-        QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+        if (keepAspectRatio)
+            resizeImageKeepAspectRatio(imgPath);
+        else
+            resizeImage(imgPath);
     }
+}
+
+void MainWindow::resizeImage(QString imgPath)
+{
+    QImage img(imgPath);
+    qDebug() << imgPath << ", " << img.width() << "x" << img.height();
+
+    int originalWidth = img.width();
+    int originalHeight = img.height();
+
+    int size = ui->imgSizeSpinBox->value();
+    int w = (size < originalWidth)? size : originalWidth;
+    int h = (size < originalHeight)? size : originalHeight;
+    QImage img2 = img.scaled(w, h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    img2.save(imgPath);
+
+    ui->logWidget->addItem(QString("Resize %1 to %2x%2").arg(imgPath).arg(w).arg(h));
+    QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+
+}
+
+void MainWindow::resizeImageKeepAspectRatio(QString imgPath)
+{
+    QImage img(imgPath);
+    qDebug() << imgPath << ", " << img.width() << "x" << img.height();
+
+    int oldWidth = img.width();
+    int oldHeight = img.height();
+    int targetSize = ui->imgSizeSpinBox->value();
+
+    QImage img2;
+    if (oldWidth > oldHeight)
+    {
+        img2 = img.scaledToWidth(targetSize, Qt::SmoothTransformation);
+    }
+    else
+    {
+        img2 = img.scaledToHeight(targetSize, Qt::SmoothTransformation);
+    }
+
+    QPoint drawPoint;
+    drawPoint.setX((targetSize - img2.width()) / 2);
+    drawPoint.setY((targetSize - img2.height()) / 2);
+
+    QImage img3(QSize(targetSize, targetSize), QImage::Format_ARGB32);
+    {
+        QPainter painter(&img3);
+        painter.drawImage(drawPoint, img2);
+        painter.end();
+    }
+    img3.save(imgPath);
+
+    ui->logWidget->addItem(QString("Resize %1 to %2x%2").arg(imgPath).arg(targetSize).arg(targetSize));
+    QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+
 }
 
 void MainWindow::quickAndDirtyResizing()

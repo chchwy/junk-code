@@ -18,8 +18,9 @@ public:
     void dragEnterEvent(QDragEnterEvent* event) override;
     void dropEvent(QDropEvent* event) override;
 
-    void resizeImages(const QList<QString>& imgFiles);
-
+    void processImages(const QList<QString>& imgFiles);
+    void resizeImage(QString imgFile);
+    void resizeImageKeepAspectRatio(QString imgFile);
 private:
     void quickAndDirtyResizing();
     Ui::MainWindow *ui;
