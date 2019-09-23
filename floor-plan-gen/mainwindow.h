@@ -18,6 +18,9 @@ public:
 
     QString randomText(int n);
     void Go();
+
+    void block23();
+    void block56();
 private:
     QMap<int, int> m;
     Ui::MainWindow *ui;
