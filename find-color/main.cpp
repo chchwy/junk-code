@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     QString input_folder = "D:\\DisplaySweet\\ipad\\onebarangaroo_staging\\project_images\\OneBarangaroo\\1.0\\ipad\\floor_plans";
-    QString output_file = "C:\\temp\\hotspot.txt";
+    QString output_file = "C:\\Temp\\hotspot.txt";
 
     QFile f(output_file);
     f.open(QFile::WriteOnly);
