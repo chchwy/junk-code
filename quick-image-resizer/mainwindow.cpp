@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setAcceptDrops(true);
-    //perforemResizing();
+    //quickAndDirtyResizing();
 }
 
 MainWindow::~MainWindow()
@@ -115,8 +115,8 @@ void MainWindow::resizeImageKeepAspectRatio(QString imgPath)
 
 void MainWindow::quickAndDirtyResizing()
 {
-    QString path = "C:\\Users\\Matt\\Desktop\\ok\\building1_level4";
-    QDirIterator it(path, QStringList() << "*.jpg", QDir::Files);
+    QString path = "C:\\Temp\\fp\\fp";
+    QDirIterator it(path, QStringList() << "*.jpg" << "*.png", QDir::Files);
 
     qDebug() << "test!";
     while(it.hasNext())
@@ -133,6 +133,8 @@ void MainWindow::quickAndDirtyResizing()
             w = h = 256;
         }
         QImage img2 = img.scaled(w, h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+
+        //QImage img2 = img.mirrored(true, false);
         img2.save(imgPath);
     }
 }
