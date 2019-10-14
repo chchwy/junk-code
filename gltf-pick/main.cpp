@@ -43,6 +43,6 @@ int main(int argc, char* argv[])
         qInfo() << picker.error();
         qInfo() << "=============================";
     }
-
-    return app.exec();
+    QCoreApplication::exit(0);
+    return 0;
 }
