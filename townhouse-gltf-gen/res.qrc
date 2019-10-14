@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>townhouse_template2.gltf</file>
+        <file>townhouse_template3.gltf</file>
+    </qresource>
+</RCC>
