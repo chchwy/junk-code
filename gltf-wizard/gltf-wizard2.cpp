@@ -4,11 +4,13 @@
 #define STBI_MSC_SECURE_CRT
 #include "gltf-wizard.h"
 #include <filesystem>
+#include <iomanip>
 
 #define TINYGLTF_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "tiny_gltf.h"
+#include <cstdint>
 
 using std::cout;
 
@@ -37,11 +39,11 @@ public:
         if (ok)
         {
             cout << "GLTF is good" << std::endl;
-            
+
             if (!warningMessage.empty()) {
                 cout << "Warnings:" << warningMessage << std::endl;
             }
-        } 
+        }
         else
         {
             cout << "ERROR:" << errorMessage << std::endl;
@@ -54,6 +56,8 @@ public:
         cout << "Default scene is " << model.defaultScene << "\n";
         cout << "All scenes\n";
 
+        stats();
+
         for (tinygltf::Scene scene : model.scenes)
         {
             cout << " Scene: " << scene.name;
@@ -64,7 +68,39 @@ public:
             }
         }
 
-        stats();
+        tinygltf::Accessor& accessor = model.accessors[0];
+        int bufferViewIndex = accessor.bufferView;
+        cout << "The Buffer view number:" << bufferViewIndex << "\n";
+        cout << "TEST";
+
+        tinygltf::BufferView& bufferView = model.bufferViews[bufferViewIndex];
+        int bufferIndex = bufferView.buffer;
+        bufferView.byteOffset;
+
+        std::vector<unsigned char>& buffer = model.buffers[bufferIndex].data;
+
+        std::vector<uint8_t> uvBuffer(bufferView.byteLength);
+        for (int i = 0; i < uvBuffer.size(); ++i)
+        {
+            uvBuffer[i] = buffer[i + bufferView.byteOffset];
+        }
+
+        int n = accessor.count * 3;
+        float* uv = (float*)uvBuffer.data();
+        for (int i = 0; i < n; i += 3)
+        {
+            cout << std::setprecision(3) << std::fixed << "Pos:[" << uv[i] << ", " << uv[i + 1] << ", " << uv[i + 2] << "]\n";
+            //uv[i] = 1.0f - uv[i];
+            //cout << "UV_new:[" << uv[i] << ", " << uv[i + 1] << "]\n";
+        }
+
+        /*
+        for (int i = 0; i < uvBuffer.size(); ++i)
+        {
+            buffer[i + bufferView.byteOffset] = uvBuffer[i];
+        }
+        */
+        cout << "ok.\n";
     }
 
     int traverseNode(tinygltf::Model& model, tinygltf::Node& node, int level)
@@ -72,8 +108,10 @@ public:
         for (int i = 0; i < level; ++i) cout << "  ";
         cout << node.name << "\n";
 
+        /*
         if (node.mesh != -1)
             node.name = rectifyName(node.name);
+        */
 
         for (int childNodeIndex : node.children)
         {
@@ -142,11 +180,10 @@ public:
 int main()
 {
 	cout << "Hello glTF wizard." << std::endl;
-    std::string path = "C:\\Temp\\highlight\\highlight_meshes_a123.gltf";
+    std::string path = "C:\\Temp\\plane\\building1_level1.gltf";
 
     GLTFWizard wizard;
     wizard.Load(path);
-
     
     tinygltf::Model& model2 = wizard.model;
     model2.asset.version = "2.0";
@@ -154,7 +191,7 @@ int main()
     model2.animations.clear();
 
     tinygltf::TinyGLTF writer;
-    writer.WriteGltfSceneToFile(&model2, "C:\\temp\\highlight\\out\\out.gltf", false, false, true);
+    //writer.WriteGltfSceneToFile(&model2, "C:\\temp\\plane\\out\\out.gltf", false, false, true);
     
 	return 0;
 }
