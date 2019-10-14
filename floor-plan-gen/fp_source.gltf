@@ -144,7 +144,7 @@
   "scene": 0,
   "scenes": [
     {
-      "name": "Plane Scene",
+      "name": "###SceneName###",
       "nodes": [0]
     }
   ],

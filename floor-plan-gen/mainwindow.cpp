@@ -13,7 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     block56();
 
-    Go();
+    //GoFloorPlan();
+    GoLevelPlan();
 }
 
 MainWindow::~MainWindow()
@@ -38,7 +39,41 @@ QString MainWindow::randomText(int n)
     return result;
 }
 
-void MainWindow::Go()
+void MainWindow::GoLevelPlan()
+{
+    std::srand(time(nullptr));
+    QFile fin(":/rsc/fp_source.gltf");
+    bool ok = fin.open(QFile::ReadOnly);
+    qDebug() << "ok?" << ok;
+
+    QString sourceText = fin.readAll();
+    QString destFolder = "C:/temp/lp/";
+    for (int b = 1; b <= 6; ++b)
+    {
+        for (int i = 0; i <= 4; ++i)
+        {
+            QString gltfJson = sourceText;
+            QString imageName = QString("lp/%1_L%2.png").arg(b).arg(i);
+            gltfJson.replace("##image_url##", imageName);
+
+            QString materialName = QString("mtl_building%1_L%2_%3").arg(b).arg(i).arg(randomText(7));
+            gltfJson.replace("##material_name##", materialName);
+            qDebug() << materialName;
+
+            QString sceneName = QString("building%1_level%2").arg(b).arg(i);
+            gltfJson.replace("###SceneName###", sceneName);
+
+            QString fileName = QString("building%1_level%2.gltf").arg(b).arg(i);
+            qDebug() << fileName;
+            QFile fout(destFolder + fileName);
+            fout.open(QFile::WriteOnly);
+            QTextStream tout(&fout);
+            tout << gltfJson;
+        }
+    }
+}
+
+void MainWindow::GoFloorPlan()
 {
     std::srand(time(nullptr));
 

@@ -17,7 +17,8 @@ public:
     ~MainWindow();
 
     QString randomText(int n);
-    void Go();
+    void GoFloorPlan();
+    void GoLevelPlan();
 
     void block23();
     void block56();
