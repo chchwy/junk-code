@@ -1,14 +1,14 @@
-#include <QCoreApplication>
+#include <QApplication>
 #include <QCommandLineParser>
 #include <QDebug>
-
 #include "gltfpicker.h"
+#include "mainwindow.h"
 
 int main(int argc, char* argv[])
 {
-    QCoreApplication app(argc, argv);
-    QCoreApplication::setApplicationName("gltf-picker");
-    QCoreApplication::setApplicationVersion("1.0");
+    QApplication a(argc, argv);
+    QApplication::setApplicationName("gltf-picker");
+    QApplication::setApplicationVersion("1.0");
 
     QCommandLineParser parser;
     parser.setApplicationDescription("glTF-picker");
@@ -16,33 +16,31 @@ int main(int argc, char* argv[])
     parser.addVersionOption();
     parser.addPositionalArgument("source", QCoreApplication::translate("main", "Source file to copy."));
     parser.addPositionalArgument("destination", QCoreApplication::translate("main", "Destination directory."));
-
-    // gltf-picker *.gltf -o folder
-    parser.process(app.arguments());
-
+    parser.process(a.arguments());
     const QStringList args = parser.positionalArguments();
-    // source is args.at(0), destination is args.at(1)
-
-    if (args.size() < 2)
+    if (args.size() >= 2)
     {
-        qInfo() << "Wrong parameter number";
+        // gltf-picker *.gltf -o folder
+        // source is args.at(0), destination is args.at(1)
+        GLTFPicker picker;
+        bool ok = picker.Run(args[0], args[1]);
+        if (ok)
+        {
+            qInfo() << "Done.";
+        }
+        else
+        {
+            qInfo() << "Oooops! something went wrong.";
+            qInfo() << "=============================";
+            qInfo() << picker.error();
+            qInfo() << "=============================";
+        }
+        QApplication::exit(0);
         return 0;
     }
 
-    GLTFPicker picker;
-    bool ok = picker.Run(args[0], args[1]);
+    MainWindow w;
+    w.show();
 
-    if (ok)
-    {
-        qInfo() << "Done.";
-    }
-    else
-    {
-        qInfo() << "Oooops! something went wrong.";
-        qInfo() << "=============================";
-        qInfo() << picker.error();
-        qInfo() << "=============================";
-    }
-    QCoreApplication::exit(0);
-    return 0;
+    return a.exec();
 }
