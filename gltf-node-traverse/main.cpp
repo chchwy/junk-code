@@ -7,10 +7,44 @@
 
 using json = nlohmann::json;
 
+
+json getJsonFromFile(const QString fileName)
+{
+    QFile f(fileName);
+    if (!f.open(QIODevice::ReadOnly)) {
+        return false;
+    }
+
+    QTextStream fin(&f);
+    QString content = fin.readAll();
+    std::string s = content.toStdString();
+
+    auto j3 = json::parse(s);
+    f.close();
+    return j3;
+}
+
+bool writeJsonToFile(const json& j3, const QString fileName)
+{
+    std::string serialized_string = j3.dump();
+
+    QFile f2(fileName);
+    if (!f2.open(QIODevice::WriteOnly)) {
+        return false;
+    }
+
+    QTextStream fout(&f2);
+    fout.setCodec("UTF-8");
+    fout << QString::fromUtf8(serialized_string.c_str());
+    fout.flush();
+    f2.close();
+    return true;
+}
+
 bool parseGLTF(QString fileName)
 {
     qDebug() << "Processing" << fileName;
-    QString format;
+
     QFile f(fileName);
     if (!f.open(QIODevice::ReadOnly)) {
         return false;
@@ -49,6 +83,7 @@ bool parseGLTF(QString fileName)
         */
         qDebug() << QString("[path.join(baseDir, buildingFileName), '-nodeName', '%1'],").arg(s);
     }
+    return true;
 }
 
 void getLevelNodeNames()
@@ -177,6 +212,42 @@ void applyAlphaCutoff()
     }
 }
 
+bool removeEmissive(QString filePath)
+{
+    qDebug() << "Processing" << filePath;
+    
+    auto j3 = getJsonFromFile(filePath);
+    auto materials = j3["materials"];
+    for (auto& i : materials)
+    {
+        if (i.find("emissiveFactor") != i.end())
+        {
+            //qDebug() << i["emissiveFactor"].is_array();
+            auto& emi = i["emissiveFactor"];
+            if (emi[0] == 0 && emi[1] == 0 && emi[2] == 0)
+            {
+                i.erase("emissiveFactor");
+            }
+        }
+    }
+    j3["materials"] = materials;
+    j3.erase("animations");
+
+    return writeJsonToFile(j3, filePath);
+}
+
+void removeEmissiveFactors()
+{
+    QString baseFolder = "D:/salesapp/apps/3dplans/public/doma-3d-scene/project_images/TheParks/1.0/3dassets/exterior";
+    QDirIterator it(baseFolder, { "*.gltf" }, QDir::Files);
+
+    while (it.hasNext())
+    {
+        QString filePath = it.next();
+        removeEmissive(filePath);
+    }
+}
+
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
@@ -185,7 +256,8 @@ int main(int argc, char *argv[])
 
     //getLevelNodeNames()
     //renameGLTFFiles();
-    applyAlphaCutoff();
+    //applyAlphaCutoff();
+    removeEmissiveFactors();
 
     QCoreApplication::exit();
     return a.exec();
