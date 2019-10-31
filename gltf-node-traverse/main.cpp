@@ -111,6 +111,27 @@ bool setAlphaMode(QString filePath)
                 i["alphaCutoff"] = 0.2;
             }
         }
+
+        std::string name;
+        if (i["name"].is_string())
+            name = i["name"].get<std::string>();
+
+        if (name == "CypressOak_Low_Leaves_Mat1")
+        {
+            i.erase("normalTexture");
+        }
+        else if (name == "BlackGum_Low_FacingLeaves_Mat1")
+        {
+            i.erase("normalTexture");
+        }
+        else if (name == "JapaneseMaple_Low_Branches_Mat1")
+        {
+            i.erase("normalTexture");
+        }
+        else if (name == "Derevo_horror_Branches_2_Mat1")
+        {
+            i.erase("normalTexture");
+        }
     }
     j3["materials"] = materials;
 
@@ -124,7 +145,7 @@ bool setAlphaMode(QString filePath)
             {
                 cutoff = i["alphaCutoff"].get<float>();
             }
-            qDebug() << i["alphaMode"].get<std::string>().c_str() << cutoff;
+            //qDebug() << i["alphaMode"].get<std::string>().c_str() << cutoff;
         }
     }
 
@@ -134,12 +155,13 @@ bool setAlphaMode(QString filePath)
     if (!f2.open(QIODevice::WriteOnly)) {
         return false;
     }
-
+    
     QTextStream fout(&f2);
     fout.setCodec("UTF-8");
     fout << QString::fromUtf8(serialized_string.c_str());
     fout.flush();
     f2.close();
+    
     return true;
 }
 
