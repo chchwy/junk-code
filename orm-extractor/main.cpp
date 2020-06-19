@@ -6,7 +6,7 @@
 bool extractChannels(const QString& inputFile)
 {
     QImage img(inputFile);
-    QImage ao(img.size(), QImage::Format_Grayscale8);
+    QImage ao(img.size(), QImage::Format_ARGB32_Premultiplied);
     QImage roughness(img.size(), QImage::Format_Grayscale8);
     QImage metallic(img.size(), QImage::Format_Grayscale8);
 
@@ -24,17 +24,17 @@ bool extractChannels(const QString& inputFile)
 
     QString aoPath = inputFile;
     aoPath.replace("occlusionRoughnessMetallic", "O");
-    ao.save(aoPath);
+    bool ok1 = ao.save(aoPath);
 
     QString roughnessPath = inputFile;
     roughnessPath.replace("occlusionRoughnessMetallic", "R");
-    roughness.save(roughnessPath);
+    bool ok2 = roughness.save(roughnessPath);
 
     QString metallicPath = inputFile;
     metallicPath.replace("occlusionRoughnessMetallic", "M");
-    metallic.save(metallicPath);
+    bool ok3 = metallic.save(metallicPath);
 
-    return true;
+    return ok1 && ok2 && ok3;
 }
 
 int main(int argc, char *argv[])
@@ -55,7 +55,10 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    extractChannels(inputFile);
-
-    return a.exec();
+    bool ok = extractChannels(inputFile);
+    if (ok)
+        std::cout << "Done: " << inputFile.toStdString() << std::endl;
+    else
+        std::cout << "Failed: " << inputFile.toStdString() << std::endl;
+    return 0;
 }
