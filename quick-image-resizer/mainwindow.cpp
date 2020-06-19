@@ -8,7 +8,9 @@
 #include <QDropEvent>
 #include <QMimeData>
 #include <QPainter>
-
+#include <QFileInfo>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +19,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     setAcceptDrops(true);
     //quickAndDirtyResizing();
+
+    for (int i = 16; i <= 4096; i *= 2)
+    {
+        ui->imgSizeCombo->addItem(QString::number(i), i);
+    }
+    ui->imgSizeCombo->setCurrentText("1024");
+
+    connect(ui->imgSizeCombo, &QComboBox::currentTextChanged, this, &MainWindow::imgSizeComboChanged);
 }
 
 MainWindow::~MainWindow()
@@ -75,6 +85,7 @@ void MainWindow::resizeImage(QString imgPath)
     ui->logWidget->addItem(QString("Resize %1 to %2x%2").arg(imgPath).arg(w).arg(h));
     QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
 
+    writeSizeToJson(imgPath, w);
 }
 
 void MainWindow::resizeImageKeepAspectRatio(QString imgPath)
@@ -111,6 +122,42 @@ void MainWindow::resizeImageKeepAspectRatio(QString imgPath)
     ui->logWidget->addItem(QString("Resize %1 to %2x%2").arg(imgPath).arg(targetSize).arg(targetSize));
     QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
 
+}
+
+void MainWindow::imgSizeComboChanged(QString s)
+{
+    int imgSize = s.toInt();
+    ui->imgSizeSpinBox->setValue(imgSize);
+}
+
+void MainWindow::writeSizeToJson(QString imgPath, int size)
+{
+    QFileInfo info(imgPath);
+    QString jsonPath = info.absoluteDir().filePath("img-size.json");
+    QFile fin(jsonPath);
+    bool ok = fin.open(QFile::ReadOnly);
+    Q_ASSERT(ok);
+
+    auto doc = QJsonDocument::fromJson(fin.readAll());
+    fin.close();
+
+    QJsonObject obj = (doc.isObject()) ? doc.object() : QJsonObject();
+    if (!obj.contains(info.fileName()))
+    {
+        obj.insert(info.fileName(), QJsonValue(size));
+    }
+    else
+    {
+        obj[info.fileName()] = QJsonValue(size);
+    }
+    doc.setObject(obj);
+
+    QFile fout(jsonPath);
+    ok = fout.open(QFile::WriteOnly);
+    Q_ASSERT(ok);
+
+    qDebug() << "W bytes:" << fout.write(doc.toJson());
+    fout.close();
 }
 
 void MainWindow::quickAndDirtyResizing()

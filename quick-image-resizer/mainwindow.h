@@ -21,7 +21,11 @@ public:
     void processImages(const QList<QString>& imgFiles);
     void resizeImage(QString imgFile);
     void resizeImageKeepAspectRatio(QString imgFile);
+
+    void imgSizeComboChanged(QString s);
+
 private:
+    void writeSizeToJson(QString imgPath, int size);
     void quickAndDirtyResizing();
     Ui::MainWindow *ui;
 };
