@@ -1,0 +1,8 @@
+.qmake.stash
+*.sln
+*.vcxproj
+*.vcxproj.filters
+/debug
+/release
+ui_*.h
+/x64
