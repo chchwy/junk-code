@@ -1,3 +1,3 @@
 # junk-code
 
-Miscellaneous experiments and useful snippets
+Misc experiments and useful (or not so useful) snippets
