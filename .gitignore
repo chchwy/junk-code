@@ -2,3 +2,5 @@
 *.vcxproj.user
 .vs
 /build-*
+id-watermark/CMakeLists.txt.user
+.DS_Store
