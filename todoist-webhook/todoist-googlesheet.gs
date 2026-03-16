@@ -55,7 +55,12 @@ function doPost(e) {
           processingStatus = 'ignored_unsupported_event';
           errorMessage = 'Unsupported event: ' + String(payload && payload.event_name ? payload.event_name : '');
         } else {
-          task = extractTask_(payload);
+          // Extract base task from webhook
+          const baseTask = extractTask_(payload);
+
+          // Enrich task data via API call
+          task = fetchEnrichedTaskDetails_(baseTask);
+
           processingStatus = 'success';
         }
       }
@@ -98,7 +103,6 @@ function doPost(e) {
 
 function extractTask_(payload) {
   const eventData = payload.event_data || {};
-  const initiator = payload.initiator || {};
 
   return {
     taskId: eventData.id || eventData.item_id || eventData.task_id || '',
@@ -106,9 +110,46 @@ function extractTask_(payload) {
     projectId: eventData.project_id || '',
     priority: eventData.priority || '',
     completedAt: eventData.completed_at || payload.triggered_at || new Date().toISOString(),
-    initiatorName: initiator.full_name || '',
-    initiatorEmail: initiator.email || ''
+    labels: (eventData.labels || []).join(', ') // Always a string, never a raw array
   };
+}
+
+/**
+ * Enriches the task data by fetching full item details from the Todoist Sync API.
+ * The webhook's item:completed payload often omits fields like labels,
+ * so we call items/get to retrieve the complete item object.
+ *
+ * Labels in the Todoist API (v9+) are plain name strings, not IDs.
+ * e.g. ["Food", "Shopping"] — no mapping needed.
+ */
+function fetchEnrichedTaskDetails_(task) {
+  const token = PropertiesService.getScriptProperties().getProperty('TODOIST_API_TOKEN');
+  if (!token || !task.taskId) return task;
+
+  try {
+    const response = UrlFetchApp.fetch(
+      'https://api.todoist.com/sync/v9/items/get?item_id=' + encodeURIComponent(task.taskId),
+      {
+        headers: { 'Authorization': 'Bearer ' + token },
+        muteHttpExceptions: true
+      }
+    );
+
+    if (response.getResponseCode() === 200) {
+      const data = JSON.parse(response.getContentText());
+      const item = data.item || {};
+
+      // Override with richer data from the full item response
+      task.labels = (item.labels || []).join(', ');
+      task.description = item.description || '';
+      task.content = item.content || task.content;
+      task.priority = item.priority || task.priority;
+    }
+  } catch (err) {
+    console.error('Enrichment failed: ' + err);
+  }
+
+  return task;
 }
 
 function appendOutcomeWithFallback_(payload, task, processingStatus, errorMessage, rawBody) {
@@ -137,36 +178,32 @@ function appendMainRow_(payload, task, processingStatus, errorMessage, rawBody) 
 
   if (sheet.getLastRow() === 0) {
     sheet.appendRow([
-      'logged_at',
-      'event_name',
-      'task_id',
-      'task_content',
-      'project_id',
-      'priority',
       'completed_at',
+      'task_content',
+      'priority',
+      'labels',
+      'task_id',
+      'project_id',
+      'event_name',
       'processing_status',
       'error_message',
-      'initiator_name',
-      'initiator_email',
-      'raw_payload',
-      'raw_body'
+      'logged_at',
+      'raw_payload'
     ]);
   }
 
   sheet.appendRow([
-    new Date(),
-    payload.event_name || '',
-    task.taskId || '',
-    task.content || '',
-    task.projectId || '',
-    task.priority || '',
     task.completedAt || '',
+    task.content || '',
+    task.priority || '',
+    task.labels || '',
+    task.taskId || '',
+    task.projectId || '',
+    payload.event_name || '',
     processingStatus || 'unknown',
     errorMessage || '',
-    task.initiatorName || '',
-    task.initiatorEmail || '',
-    JSON.stringify(payload || {}),
-    rawBody || ''
+    new Date(),
+    JSON.stringify(payload || {})
   ]);
 }
 
