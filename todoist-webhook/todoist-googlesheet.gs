@@ -1,4 +1,5 @@
 const SHEET_NAME = PropertiesService.getScriptProperties().getProperty('GOOGLE_SHEET_NAME') || 'Completed Tasks';
+const HABIT_SHEET_NAME = 'Habit Record';
 const FALLBACK_SHEET_NAME = 'Webhook Emergency Logs';
 
 function doGet() {
@@ -75,7 +76,9 @@ function enrichFromApi_(task) {
 }
 
 function appendRow_(task, status, error) {
-  const sheet = getSheet_(SHEET_NAME);
+  const labels = (task.labels || '').split(',').map(l => l.trim().toLowerCase());
+  const targetSheet = labels.includes('skip') ? HABIT_SHEET_NAME : SHEET_NAME;
+  const sheet = getSheet_(targetSheet);
   sheet.appendRow([
     task.completedAt || '',
     task.content || '',
