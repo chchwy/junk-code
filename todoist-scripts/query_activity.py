@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import requests
 import sys
+import os
 
-API_TOKEN = "YOUR_API_TOKEN_HERE"
+API_TOKEN = os.environ.get("TODOIST_API_TOKEN", "YOUR_API_TOKEN_HERE")
 HEADERS = {"Authorization": f"Bearer {API_TOKEN}"}
 TASK_ID = "6Vh478xXmfQ3q2p6"
 

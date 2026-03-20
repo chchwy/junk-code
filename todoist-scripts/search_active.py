@@ -1,6 +1,7 @@
 import requests
+import os
 
-API_TOKEN = "YOUR_API_TOKEN_HERE"
+API_TOKEN = os.environ.get("TODOIST_API_TOKEN", "YOUR_API_TOKEN_HERE")
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
 # Fetch all active tasks using the official REST API v2

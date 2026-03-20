@@ -2,11 +2,12 @@
 import requests
 import sys
 import fnmatch
+import os
 from datetime import datetime, timedelta
 
 # --- CONFIGURATION ---
 # Replace this with your actual Todoist API token
-API_TOKEN = "YOUR_API_TOKEN_HERE"
+API_TOKEN = os.environ.get("TODOIST_API_TOKEN", "YOUR_API_TOKEN_HERE")
 # ---------------------
 
 def fetch_completed_tasks(six_months_ago_str):
